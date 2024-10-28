@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <style>
+    #salida {
+      resize: vertical;
+      overflow: auto;
+      padding: 0.5rem;
+    }
+
+    .btn {
+      outline: none;
+      background-color: #3498db;
+      border: none;
+      padding: 1rem 1.5rem;
+      color: white;
+      border-radius: 10px;
+      transition: .2s ease all;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    body {
+      background-color: #bdc3c7;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <textarea id="editor"></textarea> -->
+  <div style="margin: 50px auto; max-width: 1000px;">
+    <div>
+      <h1 style="font-family: 'Courier New', Courier, monospace;">Proyecto 2 - 202208521</h1>
+    </div>
+    <h2 style="font-family: 'Courier New', Courier, monospace;">Editor:</h2>
+    <div id="editor" style="height: 40rem; width: 60rem;"></div>
+    <button class="btn" id="btn" style="margin-top: 20px;">Enviar</button>
+    <pre id="ast"></pre>
+    <h2 style="font-family: 'Courier New', Courier, monospace;">Output:</h2>
+    <textarea name="salida" rows="30" cols="100" id="salida"></textarea>
+  </div>
+
+  <script type="module" src="index.js"></script>
+
+</body>
+
+</html>

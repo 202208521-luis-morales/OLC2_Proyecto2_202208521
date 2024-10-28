@@ -1,0 +1,16 @@
+{
+  "name": "damianpeaf-olc2_2s2024-main-clase13",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "parse": "npx peggy analizador.pegjs --format es --dependency nodos:./nodos.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "peggy": "^4.1.1"
+  }
+}

@@ -1,0 +1,66 @@
+<programa> ::= <declaracion>*
+
+<declaracion> ::= <funcion_declaracion> 
+                | <clase_declaracion> 
+                | <variable_declaracion1> 
+                | <variable_declaracion> 
+                | <asignacion> 
+                | <stmt>
+
+<variable_declaracion> ::= "var" <identificador> "=" <expresion> ";"
+
+<variable_declaracion1> ::= <tipos_dato> <identificador> "=" <expresion> ";"
+
+<funcion_declaracion> ::= <tipos_dato> <identificador> "(" <parametros>? ")" <bloque>
+
+<clase_declaracion> ::= "class" <identificador> "{" <cuerpo_clase>* "}"
+
+<cuerpo_clase> ::= <variable_declaracion> | <funcion_declaracion>
+
+<parametros> ::= <param> ("," <param>)*
+
+<param> ::= <identificador> <tipos_dato>
+
+<stmt> ::= "System.out.println(" <expresion> ")" ";" 
+         | <bloque> 
+         | "if" "(" <expresion> ")" <stmt> ["else" <stmt>] 
+         | "while" "(" <expresion> ")" <stmt> 
+         | "for" "(" (<variable_declaracion1> | <variable_declaracion>) <expresion> ";" <asignacion> ")" <stmt> 
+         | "break" ";" 
+         | "continue" ";" 
+         | "return" <expresion>? ";"
+
+<bloque> ::= "{" <declaracion>* "}"
+
+<identificador> ::= [a-zA-Z][a-zA-Z0-9]*
+
+<asignacion> ::= <llamada> "=" <expresion> ";"
+
+<expresion> ::= <logica>
+
+<logica> ::= <comparacion> (("&&" | "||") <comparacion>)*
+
+<comparacion> ::= <suma> (("<=" | ">=" | "<" | ">" | "==" | "!=") <suma>)*
+
+<suma> ::= <multiplicacion> (("+" | "-") <multiplicacion>)*
+
+<multiplicacion> ::= <unaria> (("*" | "/" | "%") <unaria>)*
+
+<unaria> ::= ("-" | "!") <unaria> | <llamada>
+
+<llamada> ::= <dato> (("("<argumentos>?")") | ("." <identificador>))*
+
+<argumentos> ::= <expresion> ("," <expresion>)*
+
+<tipos_dato> ::= "void" | "int" | "float" | "string" | "boolean" | "char"
+
+<dato> ::= [0-9]+ "." [0-9]+ 
+         | [0-9]+ 
+         | "true" 
+         | "false" 
+         | "'" [^'] "'" 
+         | "\"" [^\"]* "\"" 
+         | "typeof" <expresion> 
+         | "(" <expresion> ")" 
+         | "new" <identificador> "(" <argumentos>? ")" 
+         | <identificador>
